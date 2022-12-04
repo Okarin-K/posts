@@ -1,6 +1,52 @@
 .container {
     width: 100%;
-    max-width: 960px;
+    height: 100vh;
+    display: grid;
+}
+
+.profile {
+    background-color: rgb(253 242 248);
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    grid-auto-rows: 500px;
+    grid-template-areas:
+        ". a a ."
+        ". a a .";
+}
+
+.profile a {
+    text-decoration: underline;
+}
+
+.profileItem {
+    grid-area: a;
+    align-self: center;
+    justify-self: center;
+
+    display: flex;
+}
+
+.profileImg {
+    width: 300px;
+    height: 300px;
+
+    border-radius: 50%;
+}
+
+.profileBody {
+    margin-left: 24px;
+    padding: 0;
+}
+
+.articles {
+    height: 100%;
     margin-right: auto;
     margin-left: auto;
+}
+
+.articleItem a {
+    text-decoration: underline;
+    color: rgb(59 130 246 / 0.5);
 }
