@@ -1,6 +1,5 @@
 import type { NextPage } from "next";
 import { useRouter } from "next/router";
-import styles from "../../styles/Home.module.css";
 import markdownStyles from "../../styles/Markdown.module.css";
 import { convertMarkdownToHTML } from "../api/convertMarkdownToHTML";
 import { getAllPosts, getPostBySlug } from "../api/getAllPosts";
@@ -19,7 +18,7 @@ export const Content: NextPage<{ post: PropType }> = ({ post }) => {
     }
 
     return (
-        <div className={styles.container}>
+        <div className={markdownStyles.container}>
             <div className={markdownStyles.markdown}>
                 <div dangerouslySetInnerHTML={{ __html: post.content }} />
             </div>
