@@ -1,15 +1,11 @@
 import type { NextPage } from "next";
 import Link from "next/link";
 import styles from "../styles/Home.module.css";
+import { Posts } from "../types/posts";
 import { getAllPosts } from "./api/getAllPosts";
 
 const Home: NextPage<{
-    posts: {
-        title: string;
-        slug: string;
-        date: string;
-        content: string;
-    }[];
+    posts: Posts[];
 }> = ({ posts }) => {
     return (
         <div className={styles.container}>
