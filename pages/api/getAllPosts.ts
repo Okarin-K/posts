@@ -19,6 +19,7 @@ export async function getPostBySlug(slug: string) {
     return {
         title: data["title"],
         slug: data["slug"].replace(/.md$/, ""),
+        date: data["date"],
         content: content,
     };
 }

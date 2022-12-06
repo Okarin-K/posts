@@ -7,6 +7,7 @@ import { getAllPosts, getPostBySlug } from "../api/getAllPosts";
 type PropType = {
     title: string;
     slug: string;
+    date: string;
     content: string;
 };
 

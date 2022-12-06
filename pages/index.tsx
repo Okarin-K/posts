@@ -7,6 +7,7 @@ const Home: NextPage<{
     posts: {
         title: string;
         slug: string;
+        date: string;
         content: string;
     }[];
 }> = ({ posts }) => {
@@ -33,6 +34,7 @@ const Home: NextPage<{
                         <Link as={`/posts/${post.slug}`} href={{ pathname: `posts/[slug]` }}>
                             <h3>{post.title}</h3>
                         </Link>
+                        <span className={styles.articleDate}>{post.date}</span>
                     </article>
                 ))}
             </div>

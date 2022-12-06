@@ -1,6 +1,7 @@
 ---
 title: Denoのインストールをしてみる
 slug: build-deno-environment
+date: "2022-12-06 21:03"
 ---
 
 # Denoのインストールをしてみる
@@ -23,6 +24,7 @@ curl -fsSL https://deno.land/x/install/install.sh | sh
 ```
 
 ダウンロードが始まるので完了するまで待ちます。
+
 完了後、出力にも記載されていますが、Denoの実行パスを **.bashrc** に保存してねと表示されるので言われたとおりにします。
 
 **.bashrc**の最終行あたりに追記します。

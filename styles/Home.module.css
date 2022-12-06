@@ -51,6 +51,10 @@
     color: rgb(59 130 246 / 0.5);
 }
 
+.articleDate {
+    text-align: right;
+}
+
 @media screen and (max-width: 480px) {
     /* 480px以下に適用されるCSS（スマホ用） */
     .profile {
