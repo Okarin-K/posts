@@ -27,11 +27,18 @@ export async function getPostBySlug(slug: string) {
 export async function getAllPosts() {
     const slugs = await getPostSlugs();
 
-    const posts = Promise.all(
+    const posts = await Promise.all(
         slugs.map(async (slug) => {
             return await getPostBySlug(slug);
         })
     );
 
-    return posts;
+    // 日付の降順にソートした
+    return posts.sort((current, next) => {
+        if (current.date > next.date) {
+            return -1;
+        } else {
+            return 1;
+        }
+    });
 }
