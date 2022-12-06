@@ -5,7 +5,7 @@
 }
 
 .profile {
-    background-color: rgb(253 242 248);
+    background: linear-gradient(to bottom right, blue, pink);
     height: 100%;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -49,4 +49,40 @@
 .articleItem a {
     text-decoration: underline;
     color: rgb(59 130 246 / 0.5);
+}
+
+@media screen and (max-width: 480px) {
+    /* 480px以下に適用されるCSS（スマホ用） */
+    .profile {
+        background: linear-gradient(to bottom right, blue, pink);
+        height: 100%;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        grid-auto-rows: 500px;
+        grid-template-areas:
+            ". a a ."
+            ". a a .";
+    }
+
+    .profileItem {
+        grid-area: a;
+        align-self: center;
+        justify-self: center;
+
+        display: flex;
+        flex-flow: column;
+    }
+
+    .profileImg {
+        width: 300px;
+        height: 300px;
+
+        border-radius: 50%;
+    }
+
+    .profileBody {
+        margin-left: 24px;
+        padding: 0;
+    }
 }
