@@ -6,11 +6,7 @@ export const getHatenaArticles = async () => {
 
     if (!url) {
         console.error("Failed to get hatena articles...");
-        return {
-            feed: {
-                entry: [],
-            },
-        };
+        return [];
     }
 
     const hatenaAPIUser = process.env.HATENA_API_USER;
