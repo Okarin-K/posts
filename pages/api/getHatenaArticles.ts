@@ -2,10 +2,19 @@ import fetch from "node-fetch";
 import { parseString } from "xml2js";
 
 export const getHatenaArticles = async () => {
-    const url = `https://blog.hatena.ne.jp/SazanamiN/sazanamin.hatenablog.jp/atom/entry`;
+    const url = process.env.HATENA_ENTRY_URL;
 
-    const hatenaAPIUser = "SazanamiN";
-    const hatenaAPIPassword = "kcma04vvsq";
+    if (!url) {
+        console.error("Failed to get hatena articles...");
+        return {
+            feed: {
+                entry: [],
+            },
+        };
+    }
+
+    const hatenaAPIUser = process.env.HATENA_API_USER;
+    const hatenaAPIPassword = process.env.HATENA_API_PASSWORD;
     const creds = `${hatenaAPIUser}:${hatenaAPIPassword}`;
     const encoded = Buffer.from(creds).toString("base64");
     const authorizationHeader = `Basic ${encoded}`;
