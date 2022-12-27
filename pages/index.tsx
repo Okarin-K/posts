@@ -1,31 +1,28 @@
-import type { NextPage } from "next";
-import Link from "next/link";
-import styles from "../styles/Home.module.css";
-import { Posts } from "../types/posts";
-import { getAllPosts } from "./api/getAllPosts";
-import { getHatenaArticles } from "./api/getHatenaArticles";
+import type { NextPage } from 'next';
+import Link from 'next/link';
+import styles from '../styles/Home.module.css';
+import { Posts } from '../types/posts';
+import { getAllPosts } from './api/getAllPosts';
 
 const Home: NextPage<{
     posts: Posts[];
-    hatenaArticles: {
-        title: string;
-        published: string;
-        link: string;
-    }[];
-}> = ({ posts, hatenaArticles }) => {
+}> = ({ posts }) => {
     return (
         <div className={styles.container}>
             <div className={styles.profile}>
                 <div className={styles.profileItem}>
-                    <img className={styles.profileImg} src="/ginko_2.jpg"></img>
+                    <img className={styles.profileImg} src="/daidai.jpeg"></img>
                     <div className={styles.profileBody}>
+                        <h2>Okarin</h2>
+                        <p>日々の生活やプログラミングに関する情報を発信するOkarinのウェブサイトです。</p>
+                        <p>
+                            アイコンは
+                            <a href="https://urasunday.com/title/1155" target="_brank">
+                                裏バイト：逃亡禁止
+                            </a>
+                            の橙ちゃんです。
+                        </p>
                         <ul>
-                            <h2>Okarin</h2>
-                            <li>
-                                <h3>Webエンジニア, バックエンドメインです</h3>
-                            </li>
-                            <li>TypeScriptがお気に入り</li>
-                            <li>アニメやゲームが好きです</li>
                             <li>
                                 <Link href="https://twitter.com/rachel2289029" target="_blank">
                                     Twitter
@@ -34,6 +31,11 @@ const Home: NextPage<{
                             <li>
                                 <Link href="https://github.com/Okarin-K" target="_blank">
                                     Github
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="https://sazanamin.hatenablog.jp/" target="_blank">
+                                    Hatena blog
                                 </Link>
                             </li>
                         </ul>
@@ -52,17 +54,6 @@ const Home: NextPage<{
                         </article>
                     ))}
                 </div>
-                <div className={styles.articleItem}>
-                    <h2>Hatena Articles</h2>
-                    {hatenaArticles.map((hatenaArticle) => (
-                        <article key={hatenaArticle.title}>
-                            <Link href={hatenaArticle.link}>
-                                <h3>{hatenaArticle.title}</h3>
-                            </Link>
-                            <span className={styles.articleDate}>{hatenaArticle.published}</span>
-                        </article>
-                    ))}
-                </div>
             </div>
         </div>
     );
@@ -70,11 +61,9 @@ const Home: NextPage<{
 
 export async function getStaticProps() {
     const posts = await getAllPosts();
-    const hatenaArticles = await getHatenaArticles();
     return {
         props: {
             posts,
-            hatenaArticles,
         },
     };
 }
