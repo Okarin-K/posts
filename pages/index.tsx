@@ -3,7 +3,6 @@ import Link from 'next/link';
 import styles from '../styles/Home.module.css';
 import { Posts } from '../types/posts';
 import { getAllPosts } from './api/getAllPosts';
-import { getHatenaArticles } from './api/getHatenaArticles';
 
 const Home: NextPage<{
     posts: Posts[];
