@@ -1,4 +1,4 @@
-import { Box, Heading, HStack, Image, List, ListItem, Spacer, Text, UnorderedList, VStack } from '@chakra-ui/react';
+import { Box, Heading, HStack, Image, ListItem, Spacer, Text, UnorderedList, VStack } from '@chakra-ui/react';
 import type { NextPage } from 'next';
 import Link from 'next/link';
 import { Posts } from '../types/posts';
@@ -12,7 +12,7 @@ const Home: NextPage<{
             <VStack mb="10vh">
                 <HStack w="100%" h="100vh" bg="linear-gradient(to bottom right, blue, pink)">
                     <Spacer />
-                    <Image borderRadius="50%" w="300px" h="300px" src="/daidai.jpeg"></Image>
+                    <Image borderRadius="50%" w="300px" h="300px" src="/daidai.jpeg" alt="profile image" />
                     <Box>
                         <Heading>Okarin</Heading>
                         <Text>日々の生活やプログラミングに関する情報を発信するOkarinのウェブサイトです。</Text>
