@@ -3,12 +3,12 @@
 FILE_NAME=$1
 TITLE=$2
 
-if [ -e ${FILE_NAME} ];then
+ARTICLE_PATH=./posts/${FILE_NAME}.md
+
+if [ ${ARTICLE_PATH} ];then
     echo Create to new article...
     
     touch ./posts/${FILE_NAME}.md
-
-    ARTICLE_PATH=./posts/${FILE_NAME}.md
 
     echo --- >> ${ARTICLE_PATH}
     echo title: ${TITLE} >> ${ARTICLE_PATH}
