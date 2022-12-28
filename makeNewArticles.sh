@@ -15,6 +15,8 @@ if [ ${ARTICLE_PATH} ];then
     echo slug: ${FILE_NAME} >> ${ARTICLE_PATH}
     echo date: `date "+%Y-%m-%d %H:%M"` >> ${ARTICLE_PATH}
     echo --- >> ${ARTICLE_PATH}
+    echo >> ${ARTICLE_PATH}
+    echo \# ${TITLE} >> ${ARTICLE_PATH}
 
     echo Created to ${FILE_NAME}.md!!
 else
