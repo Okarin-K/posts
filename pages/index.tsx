@@ -1,6 +1,8 @@
 import { Box, Heading, HStack, Image, ListItem, Spacer, Text, UnorderedList, VStack } from '@chakra-ui/react';
 import type { NextPage } from 'next';
+import Head from 'next/head';
 import Link from 'next/link';
+import Layout from '../components/layout';
 import { Posts } from '../types/posts';
 import { getAllPosts } from './api/getAllPosts';
 
@@ -8,7 +10,7 @@ const Home: NextPage<{
     posts: Posts[];
 }> = ({ posts }) => {
     return (
-        <>
+        <Layout>
             <VStack mb="10vh">
                 <HStack w="100%" h="100vh" bg="linear-gradient(to bottom right, blue, pink)">
                     <Spacer />
@@ -57,7 +59,7 @@ const Home: NextPage<{
                     </Box>
                 </Box>
             </VStack>
-        </>
+        </Layout>
     );
 };
 

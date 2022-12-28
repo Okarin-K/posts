@@ -1,9 +1,10 @@
-import type { NextPage } from "next";
-import { useRouter } from "next/router";
-import markdownStyles from "../../styles/Markdown.module.css";
-import { Posts } from "../../types/posts";
-import { convertMarkdownToHTML } from "../api/convertMarkdownToHTML";
-import { getAllPosts, getPostBySlug } from "../api/getAllPosts";
+import type { NextPage } from 'next';
+import { useRouter } from 'next/router';
+import Layout from '../../components/layout';
+import markdownStyles from '../../styles/Markdown.module.css';
+import { Posts } from '../../types/posts';
+import { convertMarkdownToHTML } from '../api/convertMarkdownToHTML';
+import { getAllPosts, getPostBySlug } from '../api/getAllPosts';
 
 export const Content: NextPage<{ post: Posts }> = ({ post }) => {
     const router = useRouter();
@@ -13,11 +14,13 @@ export const Content: NextPage<{ post: Posts }> = ({ post }) => {
     }
 
     return (
-        <div className={markdownStyles.container}>
-            <div className={markdownStyles.markdown}>
-                <div dangerouslySetInnerHTML={{ __html: post.content }} />
+        <Layout>
+            <div className={markdownStyles.container}>
+                <div className={markdownStyles.markdown}>
+                    <div dangerouslySetInnerHTML={{ __html: post.content }} />
+                </div>
             </div>
-        </div>
+        </Layout>
     );
 };
 
@@ -34,7 +37,7 @@ export async function getStaticPaths() {
 // `getStaticPaths` requires using `getStaticProps`
 export async function getStaticProps({ params }: { params: { slug: string } }) {
     const post = await getPostBySlug(params.slug);
-    const content = convertMarkdownToHTML(post.content || "");
+    const content = convertMarkdownToHTML(post.content || '');
 
     return {
         // Passed to the page component as props
