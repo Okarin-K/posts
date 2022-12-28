@@ -11,7 +11,7 @@ date: 2022-12-29 05:11
 Windows ユーザーだったので Linux を使うときは雰囲気で使ってるのですが、
 そろそろちゃんと学ぼうと思い立ったので以下の書籍を買いました。
 
-<div class="iframely-embed"><div class="iframely-responsive" style="height: 170px; padding-bottom: 0;"><a href="https://www.sbcr.jp/product/4797380941/" data-iframely-url="//iframely.net/UWZSZMt"></a></div></div><script async src="//iframely.net/embed.js"></script>
+[SB クリエイティブ: 新しい Linux の教科書](https://www.sbcr.jp/product/4797380941/)
 
 権限周りについて学んだのでまとめます。
 
