@@ -1,16 +1,11 @@
-import { Box, Flex, Heading, HStack, Image, ListItem, Spacer, Text, UnorderedList, VStack } from '@chakra-ui/react';
+import { Box, Heading, HStack, Image, Spacer, VStack } from '@chakra-ui/react';
 import type { NextPage } from 'next';
-import Head from 'next/head';
 import Link from 'next/link';
-import Layout from '../components/layout';
-import { Posts } from '../types/posts';
-import { getAllPosts } from './api/getAllPosts';
-import { BsTwitter, BsGithub } from 'react-icons/bs';
+import { BsGithub, BsTwitter } from 'react-icons/bs';
 import { FaBloggerB } from 'react-icons/fa';
+import Layout from '../components/layout';
 
-const Home: NextPage<{
-    posts: Posts[];
-}> = ({ posts }) => {
+const Home: NextPage = () => {
     return (
         <Layout>
             <VStack mb="10vh">
@@ -32,30 +27,13 @@ const Home: NextPage<{
                     <Spacer />
                 </VStack>
                 <Box>
-                    <Box>
-                        <h2>Articles</h2>
-                        {posts.map((post) => (
-                            <article key={post.slug}>
-                                <Link as={`/posts/${post.slug}`} href={{ pathname: `posts/[slug]` }}>
-                                    <h3>{post.title}</h3>
-                                </Link>
-                                <span>{post.date}</span>
-                            </article>
-                        ))}
+                    <Box border="solid 1px gray" p="10">
+                        <Link href="/techArticles">技術記事</Link>
                     </Box>
                 </Box>
             </VStack>
         </Layout>
     );
 };
-
-export async function getStaticProps() {
-    const posts = await getAllPosts();
-    return {
-        props: {
-            posts,
-        },
-    };
-}
 
 export default Home;
