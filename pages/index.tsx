@@ -1,10 +1,12 @@
-import { Box, Heading, HStack, Image, ListItem, Spacer, Text, UnorderedList, VStack } from '@chakra-ui/react';
+import { Box, Flex, Heading, HStack, Image, ListItem, Spacer, Text, UnorderedList, VStack } from '@chakra-ui/react';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
 import Layout from '../components/layout';
 import { Posts } from '../types/posts';
 import { getAllPosts } from './api/getAllPosts';
+import { BsTwitter, BsGithub } from 'react-icons/bs';
+import { FaBloggerB } from 'react-icons/fa';
 
 const Home: NextPage<{
     posts: Posts[];
@@ -12,39 +14,23 @@ const Home: NextPage<{
     return (
         <Layout>
             <VStack mb="10vh">
-                <HStack w="100%" h="100vh" bg="linear-gradient(to bottom right, blue, pink)">
+                <VStack w="100%" h="100vh" bg="linear-gradient(to bottom right, blue, pink)">
                     <Spacer />
-                    <Image borderRadius="50%" w="300px" h="300px" src="/daidai.jpeg" alt="profile image" />
-                    <Box>
-                        <Heading>Okarin</Heading>
-                        <Text>日々の生活やプログラミングに関する情報を発信するOkarinのウェブサイトです。</Text>
-                        <Text>
-                            アイコンは
-                            <a href="https://urasunday.com/title/1155" target="_brank">
-                                裏バイト：逃亡禁止
-                            </a>
-                            の橙ちゃんです。
-                        </Text>
-                        <UnorderedList>
-                            <ListItem>
-                                <Link href="https://twitter.com/rachel2289029" target="_blank">
-                                    Twitter
-                                </Link>
-                            </ListItem>
-                            <ListItem>
-                                <Link href="https://github.com/Okarin-K" target="_blank">
-                                    Github
-                                </Link>
-                            </ListItem>
-                            <ListItem>
-                                <Link href="https://sazanamin.hatenablog.jp/" target="_blank">
-                                    Hatena blog
-                                </Link>
-                            </ListItem>
-                        </UnorderedList>
-                    </Box>
+                    <Image borderRadius="50%" w="300px" h="300px" src="ramlethal-q.jfif" alt="profile image" />
+                    <Heading>Okarin</Heading>
+                    <HStack>
+                        <Link href="https://twitter.com/rachel2289029" target="_blank">
+                            <BsTwitter width="32px" />
+                        </Link>
+                        <Link href="https://github.com/Okarin-K" target="_blank">
+                            <BsGithub width="32px" />
+                        </Link>
+                        <Link href="https://sazanamin.hatenablog.jp/" target="_blank">
+                            <FaBloggerB width="32px" />
+                        </Link>
+                    </HStack>
                     <Spacer />
-                </HStack>
+                </VStack>
                 <Box>
                     <Box>
                         <h2>Articles</h2>
